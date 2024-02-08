@@ -116,19 +116,19 @@ size--;
      * returns true.
      */
     public boolean add(int i, Track track) {
-        if (i < 0 || i > maxSize || size == maxSize) {
+        if (i < 0 || size == maxSize) {
             return false;
         }
-        if (size == 0) {
-            add(track);
-        } else if (i == size) {
-            add(track);
-        } else {
-            for (int j = size; j > i; j--) {
-                tracks[j] = tracks[j - 1];
-            }
-            tracks[i] = track;
+        if (size == 0 || i >= size) {
+            return this.add(track);
         }
+
+        for (int index = size - 1; index >= i; index--) {
+            tracks[index + 1] = tracks[index];
+        }
+        tracks[i] = track;
+        size++;
+
         return true;
     }
 
