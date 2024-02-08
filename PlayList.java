@@ -67,7 +67,7 @@ class PlayList {
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < size; i++) {
             if (tracks[i] != null) {
-                str = str.append(tracks[i].toString() + "\n");
+                str = str.append("\n" + tracks[i].toString());
             }
         }
         return str.toString();
@@ -78,7 +78,8 @@ class PlayList {
      */
     public void removeLast() {
         if (size != 0) {
-            tracks[size--] = null;
+            tracks[size] = null;
+size--;
         }
     }
 
