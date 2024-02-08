@@ -170,10 +170,12 @@ class PlayList {
      */
     //// An elegant and terribly inefficient implementation.
     public void add(PlayList other) {
-        if (maxSize >= size + other.getSize()) {
-            for (int i = 0; i < other.getSize(); i++) {
-                tracks[size++] = other.getTrack(i);
-            }
+        if (size + other.size > maxSize) {
+            return;
+        }
+
+        for (int i = 0; i < other.size; i++) {
+            this.add(other.tracks[i]);
         }
     }
 
