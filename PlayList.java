@@ -36,7 +36,7 @@ class PlayList {
     public Track getTrack(int index) {
         if (index >= 0 && index < size) {
             return tracks[index];
-        } else {
+        } else { // redundant else
             return null;
         }
     }
@@ -51,7 +51,7 @@ class PlayList {
             tracks[size] = track;
             this.size++;
             return true;
-        } else {
+        } else { // redundant else
             return false;
         }
     }
